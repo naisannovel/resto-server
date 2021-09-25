@@ -34,5 +34,5 @@ const validateDish = dish =>{
     return schema.validate(dish)
 }
 
-module.exports.DishModel = model('dish',DishSchema);
+module.exports.DishModel = model('Dish',DishSchema);
 module.exports.validate = validateDish;

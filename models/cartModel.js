@@ -6,10 +6,14 @@ const cartSchema = new Schema({
         ref: "User",
         required: true
     },
-    myService: [{
-        service: {
+    address: {
+        type: String,
+        required: true
+    },
+    myCart: [{
+        cart: {
             type: Schema.Types.ObjectId,
-            ref: "Service",
+            ref: "Dish",
             required: true,
         },
         quantity:{
