@@ -1,4 +1,4 @@
-const { ServiceModel, validate } = require('../models/dishModel');
+const { DishModel, validate } = require('../models/dishModel');
 
 // create
 module.exports.addDish = async (req,res)=>{
@@ -15,9 +15,9 @@ module.exports.addDish = async (req,res)=>{
     const { value, error } = validate(req.body);
     if(error) return res.status(400).send(error.details[0].message);
     value.image = image;
-    const service = new ServiceModel(value);
+    const dish = new DishModel(value);
     try {
-        const result = await service.save();
+        const result = await dish.save();
         res.send(result);
       } catch (err) {
         const error = [];
@@ -30,22 +30,22 @@ module.exports.addDish = async (req,res)=>{
 
 // get
 module.exports.fetchAllDishes = async (req,res)=>{
-  const result = await ServiceModel.find({});
+  const result = await DishModel.find({});
   res.send(result);
 }
 
 // delete
 module.exports.deleteDish = async (req,res)=>{
   const id = req.params.id;
-  const result = await ServiceModel.findByIdAndDelete(id);
+  const result = await DishModel.findByIdAndDelete(id);
   if (!result) return res.status(404).send("not found");
   res.send(`successfully deleted ${result.name} dish`);
 }
 
-// update service price
+// update dish price
 module.exports.updateDishPrice = async (req,res)=>{
   const id = req.params.id;
   const price = req.body;
-  const result = await ServiceModel.findByIdAndUpdate(id,price,{ new: true });
+  const result = await DishModel.findByIdAndUpdate(id,price,{ new: true });
   return res.status(200).send(result)
 }
