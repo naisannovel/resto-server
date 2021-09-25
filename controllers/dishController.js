@@ -1,4 +1,4 @@
-const { ServiceModel, validate } = require('../models/serviceModel');
+const { ServiceModel, validate } = require('../models/dishModel');
 
 // create
 module.exports.addDish = async (req,res)=>{

@@ -4,11 +4,11 @@ const admin = require('../middlewares/admin');
 const { addDish, fetchAllDishes,deleteDish, updateDishPrice } = require('../controllers/dishController');
 
 
-router.route('/dish')
+router.route('/')
     .get(fetchAllDishes)
     .post([authorize,admin],addDish)
 
-router.route('/dish/:id')
+router.route('/:id')
     .put([authorize,admin],updateDishPrice)
     .delete([authorize,admin],deleteDish)
 

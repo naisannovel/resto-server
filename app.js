@@ -5,16 +5,20 @@ require('dotenv').config();
 const fileUpload = require('express-fileupload');
 const app = express();
 
-// router
+// routers
 const userAuthRouter = require('./routes/userAuthRouter');
+const dishRouter = require('./routes/dishRouter');
+const cartRouter = require('./routes/CartRouter');
 
 // middleware
 app.use(express.json());
 app.use(cors());
 app.use(fileUpload());
 
-// route
-app.use('/api',userAuthRouter)
+// routes
+app.use('/api',userAuthRouter);
+app.use('/api/dish',dishRouter)
+app.use('/api/cart',cartRouter);
 
 // root api
 app.get('/',(req,res)=>{
