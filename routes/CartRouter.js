@@ -5,7 +5,6 @@ const { addCart, getAllCartItem,cartItemUpdate } = require('../controllers/cartC
 
 router.route('/:id')
     .post(authorize,addCart)
-    .put([authorize,admin],cartItemUpdate)
 
 router.route('/all/item')
     .get([authorize,admin],getAllCartItem)

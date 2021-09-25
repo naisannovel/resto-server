@@ -17,12 +17,6 @@ const cartSchema = new Schema({
             min: 1,
             max: 5,
             required: true
-        },
-        status: {
-            type: String,
-            enum: ['pending', 'ongoing', 'done'],
-            default: 'pending',
-            required: true
         }
     }],
 }, {

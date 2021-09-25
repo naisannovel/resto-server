@@ -20,11 +20,3 @@ module.exports.getAllCartItem = async (req,res) => {
     return res.status(200).send(cartItems);
 };
 
-module.exports.cartItemUpdate = async (req,res) =>{
-    const id = req.params.id;
-    const status = req.body;
-    const result = await CartModel.findByIdAndUpdate(id,status,{ new: true });
-    if(result){
-        return res.status(200).send('successfully updated')
-    }
-}
