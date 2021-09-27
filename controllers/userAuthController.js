@@ -10,7 +10,7 @@ module.exports.signUp = async (req, res) => {
     let user = await User.findOne({
         email: req.body.email
     })
-
+    
     if (user) return res.status(400).send('user already exist');
 
     user = new User(value);
@@ -21,6 +21,7 @@ module.exports.signUp = async (req, res) => {
     const token = user.generateJWT()
     try{
         const result = await user.save()
+        
         return res.status(201).send({
             message:'signup success',
             token,
