@@ -30,7 +30,7 @@ module.exports.addDish = async (req,res)=>{
 
 // get
 module.exports.fetchAllDishes = async (req,res)=>{
-  const result = await DishModel.find({});
+  const result = await DishModel.find({}).select({ image: 0 });
   res.send(result);
 }
 
@@ -46,6 +46,6 @@ module.exports.deleteDish = async (req,res)=>{
 module.exports.updateDishPrice = async (req,res)=>{
   const id = req.params.id;
   const price = req.body;
-  const result = await DishModel.findByIdAndUpdate(id,price,{ new: true });
+  const result = await DishModel.findByIdAndUpdate(id,price,{ new: true }).select({ image: 0 });
   return res.status(200).send(result)
 }
