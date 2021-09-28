@@ -30,7 +30,7 @@ module.exports.addDish = async (req,res)=>{
 
 // get
 module.exports.fetchAllDishes = async (req,res)=>{
-  const result = await DishModel.find({}).select({ image: 0 });
+  const result = await DishModel.find({});
   res.send(result);
 }
 
