@@ -46,6 +46,6 @@ module.exports.deleteDish = async (req,res)=>{
 module.exports.updateDishPrice = async (req,res)=>{
   const id = req.params.id;
   const price = req.body;
-  const result = await DishModel.findByIdAndUpdate(id,price,{ new: true }).select({ image: 0 });
+  const result = await DishModel.findByIdAndUpdate(id,price,{ new: true });
   return res.status(200).send(result)
 }
