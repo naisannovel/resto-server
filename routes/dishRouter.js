@@ -6,6 +6,7 @@ const { addDish, fetchAllDishes,deleteDish, updateDishPrice } = require('../cont
 
 router.route('/')
     .get(fetchAllDishes)
+    .get([authorize,admin],fetchAllDishesAdmin)
     .post([authorize,admin],addDish)
 
 router.route('/:id')
