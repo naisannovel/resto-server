@@ -11,14 +11,14 @@ module.exports.addDish = async (req,res)=>{
       size: file.size,
       img: Buffer.from(encImg, 'base64')
     };
-
     const { value, error } = validate(req.body);
     if(error) return res.status(400).send(error.details[0].message);
     value.image = image;
     const dish = new DishModel(value);
     try {
-        const result = await dish.save();
-        res.send(result);
+      const result = await dish.save();
+        
+        res.send({msg: 'successfully added',result});
       } catch (err) {
         const error = [];
         for (field in err.errors) {

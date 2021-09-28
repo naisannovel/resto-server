@@ -20,8 +20,8 @@ const DishSchema = new Schema({
         trim: true
     },
     image:{
-        data: Buffer,
-        contentType: String
+        type: Object,
+        required: true
     }
 },{ timestamps: true })
 
