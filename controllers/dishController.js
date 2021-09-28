@@ -39,7 +39,7 @@ module.exports.deleteDish = async (req,res)=>{
   const id = req.params.id;
   const result = await DishModel.findByIdAndDelete(id);
   if (!result) return res.status(404).send("not found");
-  res.send(`successfully deleted ${result.name} dish`);
+  res.send({id,msg:`successfully deleted ${result.name} dish`});
 }
 
 // update dish price
