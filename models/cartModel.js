@@ -7,11 +7,11 @@ const cartSchema = new Schema({
         required: true
     },
     address: {
-        type: String,
+        type: Object,
         required: true
     },
     myCart: [{
-        cart: {
+        cartItem: {
             type: Schema.Types.ObjectId,
             ref: "Dish",
             required: true,

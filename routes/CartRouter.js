@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const authorize = require('../middlewares/authorize');
 const admin = require('../middlewares/admin');
-const { addCart, getAllCartItem,cartItemUpdate } = require('../controllers/cartController');
+const { addCart, getAllCartItem } = require('../controllers/cartController');
 
-router.route('/:id')
+router.route('/')
     .post(authorize,addCart)
 
 router.route('/all/item')
