@@ -1,7 +1,7 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 module.exports = (req, res) => {
-    const { service, token } = req.body;
+    const { totalPrice, token } = req.body;
   
     return stripe.customers
       .create({
@@ -11,11 +11,11 @@ module.exports = (req, res) => {
       .then(customer => {
         stripe.charges.create(
           {
-            amount: service.price * 100,
+            amount: totalPrice * 100,
             currency: "usd",
             customer: customer.id,
             receipt_email: token.email,
-            description: `purchase of ${service.name}`
+            description: `Order Placed Successfully`
           }
         );
       })

@@ -9,6 +9,7 @@ const app = express();
 const userAuthRouter = require('./routes/userAuthRouter');
 const dishRouter = require('./routes/dishRouter');
 const cartRouter = require('./routes/CartRouter');
+const paymentRouter = require('./routes/paymentRouter');
 
 // middleware
 app.use(express.json());
