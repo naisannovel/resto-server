@@ -20,6 +20,9 @@ app.use('/api',userAuthRouter);
 app.use('/api/dish',dishRouter)
 app.use('/api/cart',cartRouter);
 
+// payment router
+app.use('/api/payment',paymentRouter);
+
 // root api
 app.get('/',(req,res)=>{
     res.send('hello world, i am root api')
