@@ -2,7 +2,6 @@ const { DishModel, validate } = require('../models/dishModel');
 
 // create
 module.exports.addDish = async (req,res)=>{
-
     const file = req.files.image;
     const newImg = file.data;
     const encImg = newImg.toString('base64');
