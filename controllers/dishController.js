@@ -30,7 +30,9 @@ module.exports.addDish = async (req,res)=>{
 
 // get
 module.exports.fetchAllDishes = async (req,res)=>{
-  const result = await DishModel.find({});
+  const skip = req.query.skip;
+  const limit = req.query.limit;
+  const result = await DishModel.find({}).limit(parseInt(limit)).skip(parseInt(skip));
   res.send(result);
 }
 
