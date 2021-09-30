@@ -35,6 +35,12 @@ module.exports.fetchAllDishes = async (req,res)=>{
   res.send(result);
 }
 
+// get
+module.exports.fetchAllDishesOnce = async (req,res)=>{
+  const result = await DishModel.find({});
+  res.send(result);
+}
+
 // delete
 module.exports.deleteDish = async (req,res)=>{
   const id = req.params.id;
