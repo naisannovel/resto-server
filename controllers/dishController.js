@@ -37,7 +37,7 @@ module.exports.fetchAllDishes = async (req,res)=>{
 
 // get
 module.exports.fetchAllDishesOnce = async (req,res)=>{
-  const result = await DishModel.find({});
+  const result = await DishModel.find({}).select({ image: 0 });
   res.send(result);
 }
 
