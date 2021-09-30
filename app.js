@@ -1,6 +1,7 @@
 require('express-async-errors');
 const express = require('express');
 const cors = require('cors');
+const compression = require('compression');
 require('dotenv').config();
 const fileUpload = require('express-fileupload');
 const app = express();
@@ -15,6 +16,7 @@ const paymentRouter = require('./routes/paymentRouter');
 app.use(express.json());
 app.use(cors());
 app.use(fileUpload());
+app.use(compression());
 
 // routes
 app.use('/api',userAuthRouter);
